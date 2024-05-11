@@ -49,11 +49,13 @@ def load_sheet_to_bigquery():
         "telefone_5",
         "telefone_6",
         "observacoes_gerais",
+        "apagar",
         "latitude",
         "longitude"
     ]
     content = np.array(data[2:])
     df = pd.DataFrame(content[:, :len(columns)], columns=columns)
+    df = df.drop('apagar', axis=1)
 
     # Convertendo para inteiro
     quantidades = [
